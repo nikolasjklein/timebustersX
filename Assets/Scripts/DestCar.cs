@@ -29,7 +29,7 @@ public class DestCar : MonoBehaviour
         VeloYText.text = Player.GetComponent<CharacterController>().velocity.y.ToString();
         VeloZText.text = Player.GetComponent<CharacterController>().velocity.z.ToString();
 
-        if (Player.GetComponent<CharacterController>().velocity.y < -3f)
+        if (Player.GetComponent<CharacterController>().velocity.y < -6f)
         {
             isFalling = true;
         }
@@ -51,6 +51,8 @@ public class DestCar : MonoBehaviour
 
         else
         {
+            Car_New.gameObject.SetActive(true);
+            Car_Destroyed.gameObject.SetActive(false);
             Debug.Log("Car not Destroyed");
         }
     }
