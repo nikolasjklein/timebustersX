@@ -9,6 +9,8 @@ public class WUII_Editor : EditorWindow
     public float explosionRadius;
     public string bombType;
 
+    public Sprite WeaponImage;
+
     public bool showHelp;
 
     [MenuItem("Window/TIME BUSTERS X' WEAPON UI INTEGRATION EDITOR")]
@@ -29,14 +31,26 @@ public class WUII_Editor : EditorWindow
         GUILayout.Label(logo, GUILayout.Width(512), GUILayout.Height(64));
 
         GUILayout.BeginVertical();
-        GUILayout.Label("------------------------------------------------------------------------------------------------------", EditorStyles.largeLabel);
+        GUILayout.Label("-------------------------------------------------------------------------------------------------", EditorStyles.largeLabel);
         GUILayout.EndVertical();
+
+        //
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("Set the UI Display Image of the Weapon:\n(as a Sprite File!)", EditorStyles.boldLabel);
+        WeaponImage = (Sprite)EditorGUILayout.ObjectField("", WeaponImage, typeof(Sprite), false);
+        GUILayout.EndHorizontal();
 
         //
         GUILayout.BeginVertical();
         GUILayout.Label("");
         GUILayout.Label("Set Delay for Bomb Explosion:", EditorStyles.boldLabel);
         explosionDelay = EditorGUILayout.FloatField("", explosionDelay);
+        GUILayout.EndVertical();
+
+        GUILayout.BeginVertical();
+        GUILayout.Label("");
+        GUILayout.Label("Selected Sprite:");
+        GUILayout.Label(WeaponImage.texture, GUILayout.Width(256), GUILayout.Height(128));
         GUILayout.EndVertical();
 
         //---------------------------------------------------------------------------------------------------------------------------------------
